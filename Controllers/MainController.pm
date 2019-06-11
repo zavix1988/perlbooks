@@ -35,7 +35,17 @@ sub indexAction {
         $book->{'bookAuthors'} = \$authors->findByBookId($book->{'id'});
         push @newBooks, $book;
     }
-    return @newBooks;
+    my $content;
+    $content->{'books'} = \@newBooks;
+    $content->{'genres'} = \@allGenres;
+    $content->{'authors'} = \@allAuthors;
+    return $content;
+}
+
+sub BookAction {
+    my ($self) = @_;
+
+
 }
 
 
